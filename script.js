@@ -77,7 +77,6 @@ menuIcon.forEach((element, index) => {
         element.style.color = 'var(--icon-hover-color)'
         console.log(index)
     })
-    
 });
 
 menuIcon.forEach(element => {
@@ -154,3 +153,23 @@ maxBtn.addEventListener('click', ()=> {
         `
     }
 });
+
+const minbtn = document.querySelector('.min')
+
+minbtn.addEventListener('click', ()=> {
+    let window = document.querySelector('.window')
+    console.log('minbtn')
+    
+    if (!window.style.width) {
+        window.style.width = '99%';
+        window.style.height = '97%';
+    }
+
+    if (window.style.width == '99%') {
+        window.style.width = '80%'
+        window.style.height = '85%'
+    } else {
+        window.style.height = '97%'
+        window.style.width = '99%'
+    }
+})

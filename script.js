@@ -67,34 +67,32 @@ function checkTime(){
 let itemColor;
 
 menuIcon.forEach((element, index) => {
-
-    element.addEventListener('click', ()=>{
+    if (element.classList.contains('active-icon')) {
         itemColor = index
-        menuIcon.forEach(el => {
-            el.style.color = 'var(--icon-color)'
-        });
-        
-        element.style.color = 'var(--icon-hover-color)'
-        console.log(index)
-    })
-});
+        console.log(itemColor);
+    }
+})
 
 menuIcon.forEach(element => {
     element.addEventListener("mouseover", () => {
-        menuIcon.forEach((el) => {
-            if (el.style.color != 'var(--icon-hover-color)' ) {
-                el.style.color = "var(--icon-color)";}
+        menuIcon.forEach((el, index) => {
+            if (itemColor === index) {
+                el.style.color = 'var(--icon-hover-color)'
+            }else {
+                el.style.color = 'var(--icon-color)'
+            }
         });
         element.style.color = "var(--green-color)";
     });
-    console.log(element.innerText);
 });
 
 menuIcon.forEach((element, index) => {
     element.addEventListener('mouseout', ()=>{
-        element.style.color = 'var(--icon-color)'
         if (index === itemColor) {
             element.style.color = 'var(--icon-hover-color)'
+        }
+        else{
+        element.style.color = 'var(--icon-color)'
         }
     })
 });
@@ -166,7 +164,7 @@ minbtn.addEventListener('click', ()=> {
     }
 
     if (window.style.width == '99%') {
-        window.style.width = '80%'
+        window.style.width = '85%'
         window.style.height = '85%'
     } else {
         window.style.height = '97%'
